@@ -131,11 +131,8 @@ resource "azurerm_virtual_machine" "main" {
     admin_username = "testuser"
     admin_password = "SHIisNumber1!"
   }
-  #os_profile_linux_config {
-  #  disable_password_authentication = false
-  #}
-  
-  os_profile_windows_config {
+  os_profile_linux_config {
+    disable_password_authentication = false
   }
   
   tags     = local.common_tags
