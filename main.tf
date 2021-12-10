@@ -10,11 +10,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-}
-
-# Variable Declarations
-provider "azurerm" {
-  features {}
   subscription_id = var.TF_VAR_ARM_SUBSCRIPTION_ID
   client_id       = var.TF_VAR_ARM_CLIENT_ID
   client_secret   = var.TF_VAR_ARM_CLIENT_SECRET
@@ -144,7 +139,7 @@ resource "azurerm_virtual_machine" "main" {
   # delete_data_disks_on_termination = true
 
   storage_image_reference {
-    id = "${data.azurerm_image.custom.id}"
+    id = data.azurerm_image.custom.id
   }
   storage_os_disk {
     name              = "${var.VmName}-osdisk1"
